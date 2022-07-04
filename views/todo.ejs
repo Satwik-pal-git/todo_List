@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/11acfefc76.js" crossorigin="anonymous"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="todo.css">
+    <title>TODO List</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/todo" method="POST" id="newtask">
+            <input type="text" name="title_todo" placeholder="task to do..." id="title">
+            <button id="add">Add</button>
+        </form>
+
+        <%if(Data.length>0){%>
+            <div id="tasks">
+                <%for(var i=0;i<Data.length;i++){%>
+                    <div class="task">
+                        <span id="taskname">
+                            <%=Data[i].Name%>
+                        </span>
+                        <button class="delete">
+                            <a href="delete/<%=Data[i]._id%>"><i class="far fa-trash-alt"></i></a>
+                        </button>
+                    </div>
+                    <%}%>
+            </div>
+            <%}else {%>
+                <div class="notask">
+                    <img src="NO_todo.PNG" alt="">
+                    <p class="notodo">Nothing in To Do</p>
+                </div>
+                <%}%>
+    </div>
+
+    <!-- JS -->
+    <script src="todo.js"></script>
+</body>
+
+</html>
