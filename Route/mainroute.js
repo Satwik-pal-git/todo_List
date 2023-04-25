@@ -6,8 +6,7 @@ const todo_model = require("../models/todoModel");
 
 
 router.get("/", (req, res) => {
-    console.log(__dirname);
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "/../public/login.html"));
 });
 
 router.post("/", authController.login, (req, res) => {
